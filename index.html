@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <meta name="description" content="Dr. Mushir M. Siddiqui - Expert Orthopaedic Surgeon in Mumbai specializing in Joint Replacement, Trauma Care, Sports Medicine, and Spine & Back Surgery." />
-  <meta name="keywords" content="orthopaedic surgeon mumbai, joint replacement, bone specialist, sports injury doctor, dr mushir siddiqui" />
+  <meta name="keywords" content="orthopaedic surgeon mumbai, orthopedic doctor mumbai, best orthopaedic surgeon in mumbai, joint replacement surgeon mumbai, knee replacement surgeon mumbai, hip replacement surgeon mumbai, trauma care specialist mumbai, sports medicine doctor mumbai, arthroscopy specialist mumbai, spine surgery mumbai, back pain specialist mumbai, fracture treatment mumbai, bone and joint specialist mumbai, musculoskeletal expert mumbai, orthopedic clinic mumbai, orthopedic specialist thane, minimally invasive joint surgery mumbai, shoulder surgery mumbai, ligament injury treatment mumbai, ACL reconstruction surgeon mumbai, geriatric orthopaedics mumbai, paediatric orthopaedics mumbai, arthritis treatment mumbai, osteoporosis specialist mumbai, ortho trauma surgeon mumbai, best joint replacement doctor mumbai, robotic knee replacement mumbai, orthopedic consultation mumbai, ortho specialist near me, dr mushir siddiqui" />
   <meta name="author" content="Dr. Mushir M. Siddiqui" />
   
   <title>Dr. Mushir M. Siddiqui | Orthopaedic Surgeon Mumbai</title>
@@ -160,7 +160,7 @@
       top: 0;
       left: 0;
       width: 100%;
-      background: rgba(255, 255, 255, 0.98);
+      background: rgba(250, 250, 250, 1);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(0, 0, 0, 0.06);
       z-index: 1000;
@@ -169,7 +169,7 @@
 
     .navbar.scrolled {
       box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
-      background: rgba(255, 255, 255, 0.99);
+      background: rgba(250, 250, 250, 1);
       border-bottom-color: rgba(0, 0, 0, 0.08);
     }
 
@@ -177,9 +177,11 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.125rem 1.5rem;
-      max-width: 1440px;
+      padding: 0.5rem 1rem;
+      max-width: 1280px;
       margin: 0 auto;
+      flex-direction: row-reverse;
+      padding-bottom: 0.7rem;
     }
 
     .logo {
@@ -205,14 +207,11 @@
     }
 
     .logo-icon {
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--primary-blue);
-      font-size: 2rem;
-      font-weight: 400;
+      height: 65px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+      /* Ensure the full image is visible */
     }
 
     .nav-menu {
@@ -584,6 +583,104 @@
     }
 
     /* ========================================
+       KNOW YOUR DOCTOR SECTION
+       ======================================== */
+    .know-doctor {
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .know-doctor-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: var(--radius-2xl);
+      padding: 3rem;
+      box-shadow: var(--shadow-xl);
+      position: relative;
+      z-index: 1;
+    }
+
+    .doctor-intro {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .doctor-intro h3 {
+      font-size: clamp(1.75rem, 4vw, 2.25rem);
+      color: var(--gray-900);
+      margin-bottom: 0.5rem;
+    }
+
+    .doctor-intro .title {
+      font-size: 1.125rem;
+      color: var(--primary-blue);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .doctor-description {
+      font-size: 1.0625rem;
+      line-height: 1.8;
+      color: var(--gray-700);
+      margin-bottom: 1.5rem;
+    }
+
+    .doctor-description strong {
+      color: var(--primary-blue);
+      font-weight: 600;
+    }
+
+    .doctor-highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .highlight-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.25rem;
+      background: var(--gray-50);
+      border-radius: var(--radius-xl);
+      border-left: 4px solid var(--primary-blue);
+      transition: all var(--transition-base);
+    }
+
+    .highlight-item:hover {
+      transform: translateX(5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .highlight-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    .highlight-content h4 {
+      font-size: 1rem;
+      color: var(--gray-900);
+      margin-bottom: 0.375rem;
+    }
+
+    .highlight-content p {
+      font-size: 0.9375rem;
+      color: var(--gray-600);
+      line-height: 1.6;
+    }
+
+    /* ========================================
        SERVICES SECTION
        ======================================== */
     .services {
@@ -650,6 +747,235 @@
     .service-card p {
       color: var(--gray-600);
       line-height: 1.7;
+    }
+
+    /* ========================================
+       TESTIMONIALS SECTION
+       ======================================== */
+    .testimonials {
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonials-slider {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .testimonials-track {
+      position: relative;
+      min-height: 480px;
+    }
+
+    .testimonial-card {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: var(--white);
+      border-radius: var(--radius-2xl);
+      padding: 2rem 2.5rem;
+      box-shadow: var(--shadow-xl);
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      pointer-events: none;
+    }
+
+    .testimonial-card.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .testimonial-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .testimonial-avatar {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 1.5rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .testimonial-info h4 {
+      font-size: 1.25rem;
+      color: var(--gray-900);
+      margin-bottom: 0.25rem;
+    }
+
+    .testimonial-date {
+      font-size: 0.875rem;
+      color: var(--gray-500);
+    }
+
+    .testimonial-stars {
+      display: flex;
+      gap: 0.25rem;
+    }
+
+    .testimonial-stars i {
+      font-size: 1.25rem;
+      color: #fbbf24;
+      filter: drop-shadow(0 1px 2px rgba(251, 191, 36, 0.3));
+    }
+
+    .testimonial-quote {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 1.5rem;
+      opacity: 0.15;
+    }
+
+    .testimonial-text {
+      font-size: 1.125rem;
+      line-height: 1.8;
+      color: var(--gray-700);
+      margin-top: 1rem;
+      margin-bottom: 0;
+    }
+
+    .testimonial-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      background: rgba(8, 145, 178, 0.9);
+      backdrop-filter: blur(10px);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 1.25rem;
+      cursor: pointer;
+      transition: all var(--transition-base);
+      z-index: 10;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .testimonial-nav:hover {
+      background: var(--primary-blue);
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 4px 12px rgba(8, 145, 178, 0.4);
+    }
+
+    .testimonial-nav.prev {
+      left: -70px;
+    }
+
+    .testimonial-nav.next {
+      right: -70px;
+    }
+
+    .testimonial-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.625rem;
+      margin-top: 2rem;
+      padding: 0.75rem;
+    }
+
+    .testimonial-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: var(--radius-full);
+      background: rgba(8, 145, 178, 0.3);
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: none;
+    }
+
+    .testimonial-dot:hover {
+      background: rgba(8, 145, 178, 0.5);
+      transform: scale(1.2);
+    }
+
+    .testimonial-dot.active {
+      width: 32px;
+      background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+      box-shadow: 0 2px 8px rgba(8, 145, 178, 0.6);
+    }
+
+    .google-review-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+      color: var(--white);
+      border-radius: var(--radius-xl);
+      font-weight: 600;
+      font-size: 1.0625rem;
+      box-shadow: var(--shadow-blue);
+      transition: all var(--transition-base);
+      text-decoration: none;
+      margin-top: 2rem;
+    }
+
+    .google-review-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .google-review-btn i {
+      font-size: 1.25rem;
+    }
+
+    @media (max-width: 768px) {
+      .testimonial-nav {
+        display: none;
+      }
+
+      .testimonials-track {
+        min-height: 560px;
+      }
+
+      .testimonial-card {
+        padding: 1.5rem;
+      }
+
+      .testimonial-quote {
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+        top: 1.5rem;
+        right: 1.5rem;
+      }
+
+      .testimonial-text {
+        font-size: 1rem;
+        line-height: 1.7;
+      }
     }
 
     /* ========================================
@@ -831,6 +1157,10 @@
     }
 
     .gallery .section-header {
+      margin-bottom: 2rem;
+    }
+
+    .testimonials .section-header {
       margin-bottom: 2rem;
     }
 
@@ -1043,6 +1373,15 @@
     }
 
     @media (max-width: 480px) {
+      .testimonials-track {
+        min-height: 600px;
+      }
+
+      .testimonial-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
       .gallery-track {
         width: 320px;
         height: 320px;
@@ -1479,9 +1818,8 @@
       }
 
       .logo-icon {
-        width: 44px;
-        height: 44px;
-        font-size: 1.75rem;
+        height: 50px;
+        width: auto;
       }
 
       .hospital-card,
@@ -1540,16 +1878,15 @@
   <nav class="navbar" id="navbar">
     <div class="nav-container">
       <a href="#home" class="logo">
-        <div class="logo-icon">
-          <i class="fas fa-user-md"></i>
-        </div>
-        <span>Dr. Mushir Siddiqui</span>
+        <img src="content/images/logo.jpeg" alt="Dr. Mushir Siddiqui Logo" class="logo-icon" />
       </a>
       
       <ul class="nav-menu" id="navMenu">
         <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#services" class="nav-link">Services</a></li>
         <li><a href="#hospitals" class="nav-link">Hospitals</a></li>
+        <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
         <li><a href="#gallery" class="nav-link">Gallery</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
         <li><a href="tel:+919819555486" class="nav-cta"><i class="fas fa-phone"></i> Call Now</a></li>
@@ -1588,7 +1925,7 @@
               <i class="fas fa-star-half-alt"></i>
             </div>
             <span class="rating-number">4.9/5</span>
-            <span class="rating-text">Across 500+ Reviews</span>
+            <span class="rating-text">Across 300+ Reviews</span>
           </div>
           
           <div class="hero-buttons">
@@ -1608,7 +1945,7 @@
               <span class="stat-label">Hospital Locations</span>
             </div>
             <div class="stat-card">
-              <span class="stat-number">15+</span>
+              <span class="stat-number">6+</span>
               <span class="stat-label">Years Experience</span>
             </div>
             <div class="stat-card">
@@ -1624,7 +1961,8 @@
         
         <div class="hero-image-slider">
           <div class="slider-track">
-            <img src="content/images/main-1.jpg" alt="Dr. Mushir M. Siddiqui - Orthopaedic Surgeon" class="slider-image active" />
+            <img src="content/images/main-0.jpg" alt="Dr. Mushir M. Siddiqui - Main Image" class="slider-image active" />
+            <img src="content/images/main-1.jpg" alt="Dr. Mushir M. Siddiqui - Orthopaedic Surgeon" class="slider-image" />
             <img src="content/images/main-2.jpg" alt="Dr. Mushir M. Siddiqui - Medical Practice" class="slider-image" />
             <img src="content/images/main-3.jpg" alt="Dr. Mushir M. Siddiqui - Surgery" class="slider-image" />
             <img src="content/images/main-4.jpg" alt="Dr. Mushir M. Siddiqui - Consultation" class="slider-image" />
@@ -1634,6 +1972,76 @@
             <span class="dot" data-slide="1"></span>
             <span class="dot" data-slide="2"></span>
             <span class="dot" data-slide="3"></span>
+            <span class="dot" data-slide="4"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KNOW YOUR DOCTOR SECTION -->
+  <section class="know-doctor section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <h2>Know Your <span class="gradient-text">Doctor</span></h2>
+      </div>
+      
+      <div class="know-doctor-content reveal">
+        <div class="doctor-intro">
+          <h3>Dr. MUSHIR M. SIDDIQUI</h3>
+          <p class="title">Consultant Orthopaedic Surgeon</p>
+        </div>
+        
+        <div class="doctor-description">
+          <p>
+            Dr. Mushir M. Siddiqui is a Consultant Orthopaedic Surgeon practising in Mumbai.
+          </p>
+          <p>
+            Specialized expertise in <strong>Joint Replacement, Trauma, Spine, Paediatric, Sports Injury and Arthroscopic Surgery</strong>.
+          </p>
+          <p>
+            He is a Post Graduate <strong>"Gold Medalist"</strong> in Field of Orthopedics with <strong>"Fellowship in Joint Replacement"</strong>.
+          </p>
+          <p>
+            He practises in Andheri and Jogeshwari areas of Mumbai. He visits many of the Hospitals for Emergency, in-patient and Surgery visits.
+          </p>
+          <p>
+            He has demonstrated positive results and patient satisfaction and believes in promoting maximum health and mobility from Geriatric to Paediatric age group.
+          </p>
+          <p>
+            Dr. Mushir believes in treating every patient with utmost care and goes an extra mile to make his patient comfortable.
+          </p>
+        </div>
+        
+        <div class="doctor-highlights">
+          <div class="highlight-item">
+            <div class="highlight-icon">
+              <i class="fas fa-medal"></i>
+            </div>
+            <div class="highlight-content">
+              <h4>Gold Medalist</h4>
+              <p>Post Graduate Gold Medalist in Orthopedics</p>
+            </div>
+          </div>
+          
+          <div class="highlight-item">
+            <div class="highlight-icon">
+              <i class="fas fa-certificate"></i>
+            </div>
+            <div class="highlight-content">
+              <h4>Fellowship</h4>
+              <p>Fellowship in Joint Replacement</p>
+            </div>
+          </div>
+          
+          <div class="highlight-item">
+            <div class="highlight-icon">
+              <i class="fas fa-user-friends"></i>
+            </div>
+            <div class="highlight-content">
+              <h4>Patient Care</h4>
+              <p>Dedicated to patient comfort and satisfaction</p>
+            </div>
           </div>
         </div>
       </div>
@@ -1669,8 +2077,16 @@
           <div class="service-icon">
             <i class="fas fa-running"></i>
           </div>
-          <h3>Sports Medicine</h3>
-          <p>Specialized care for sports-related injuries including ligament tears, cartilage damage, and arthroscopic procedures.</p>
+          <h3>Sports Injury</h3>
+          <p>Specialized care for sports-related injuries including ligament tears, cartilage damage, and musculoskeletal trauma.</p>
+        </div>
+        
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <i class="fas fa-microscope"></i>
+          </div>
+          <h3>Arthroscopic Surgery</h3>
+          <p>Minimally invasive arthroscopic procedures for joints, offering faster recovery, less pain, and minimal scarring.</p>
         </div>
         
         <div class="service-card reveal">
@@ -1695,6 +2111,153 @@
           </div>
           <h3>Minimally Invasive Surgery</h3>
           <p>Arthroscopic and minimally invasive procedures for faster recovery, less pain, and minimal scarring.</p>
+        </div>
+        
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <i class="fas fa-child"></i>
+          </div>
+          <h3>Paediatric Orthopaedic Surgery</h3>
+          <p>Specialized orthopaedic care for children including congenital deformities, growth plate injuries, and developmental conditions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS SECTION -->
+  <section class="testimonials section" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <h2>Patient <span class="gradient-text">Testimonials</span></h2>
+        <p class="subtitle">See what our patients are saying about their experience</p>
+      </div>
+      
+      <div class="testimonials-slider reveal">
+        <div class="testimonials-track">
+          <!-- Testimonial 1 - Jyotsna Sawant -->
+          <div class="testimonial-card active">
+            <div class="testimonial-quote">
+              <i class="fas fa-quote-left"></i>
+            </div>
+            <div class="testimonial-header">
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">JS</div>
+                <div class="testimonial-info">
+                  <h4>Jyotsna Sawant</h4>
+                  <p class="testimonial-date">Patient Review</p>
+                </div>
+              </div>
+              <div class="testimonial-stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+            <p class="testimonial-text">
+              Sir is excellent skilled & very kind & positive & encouraging to his patients. & My mother has very much relief & comfort in her lower back pain. Stay blessed sir🙏
+            </p>
+          </div>
+
+          <!-- Testimonial 2 - Ramiz Raja -->
+          <div class="testimonial-card">
+            <div class="testimonial-quote">
+              <i class="fas fa-quote-left"></i>
+            </div>
+            <div class="testimonial-header">
+              <div class="testimonial-author">
+                <img src="content/images/review-ramizraja.png" alt="Ramiz Raja" class="testimonial-avatar" style="border-radius: 50%; object-fit: cover;" />
+                <div class="testimonial-info">
+                  <h4>Ramiz Raja</h4>
+                  <p class="testimonial-date">Patient Review</p>
+                </div>
+              </div>
+              <div class="testimonial-stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+            <p class="testimonial-text">
+              I had a great experience with Dr. Mushir. He is very humble and professional. In just two visits, I was able to recover completely. He treated me with care and explained everything clearly. What I really appreciated was that he suggested simple exercises, so I didn't even need physiotherapy. Highly recommended for anyone looking for an experienced and caring orthopedic doctor!
+            </p>
+          </div>
+
+          <!-- Testimonial 3 - Yasmin Kasmani -->
+          <div class="testimonial-card">
+            <div class="testimonial-quote">
+              <i class="fas fa-quote-left"></i>
+            </div>
+            <div class="testimonial-header">
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">YK</div>
+                <div class="testimonial-info">
+                  <h4>Yasmin Kasmani</h4>
+                  <p class="testimonial-date">Patient Review</p>
+                </div>
+              </div>
+              <div class="testimonial-stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+            <p class="testimonial-text">
+              Doctor is very soft hearted and soft spoken. Very kind to patients. He treated my mother very gently, she's 72 with severe arthritis. Keeping all complications in mind he did his job very well. Thanks alot Dr Mushir!!
+            </p>
+          </div>
+
+          <!-- Testimonial 4 - Devika Chibber -->
+          <div class="testimonial-card">
+            <div class="testimonial-quote">
+              <i class="fas fa-quote-left"></i>
+            </div>
+            <div class="testimonial-header">
+              <div class="testimonial-author">
+                <img src="content/images/review-devika.png" alt="Devika Chibber" class="testimonial-avatar" style="border-radius: 50%; object-fit: cover;" />
+                <div class="testimonial-info">
+                  <h4>Devika Chibber</h4>
+                  <p class="testimonial-date">4 months ago</p>
+                </div>
+              </div>
+              <div class="testimonial-stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+            <p class="testimonial-text">
+              Dr. Mushir Siddiqui is one of the best orthopaedic doctors I've come across. I recently consulted him for a foot fracture, and the entire treatment was smooth and reassuring. He is extremely skilled, professional, and highly knowledgeable, yet also very approachable. He patiently answered all my questions and made sure I understood every step of the treatment. His thoughtful approach and personal attention played a major role in my recovery. I would highly recommend him to anyone looking for a orthopaedic doctor!
+            </p>
+          </div>
+
+          <button class="testimonial-nav prev" aria-label="Previous testimonial">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="testimonial-nav next" aria-label="Next testimonial">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <div class="testimonial-dots">
+          <button class="testimonial-dot active" data-testimonial="0"></button>
+          <button class="testimonial-dot" data-testimonial="1"></button>
+          <button class="testimonial-dot" data-testimonial="2"></button>
+          <button class="testimonial-dot" data-testimonial="3"></button>
+        </div>
+
+        <div style="text-align: center;">
+          <a href="https://share.google/CPYG0SbPfIAjpgpZU" target="_blank" rel="noopener noreferrer" class="google-review-btn">
+            <i class="fab fa-google"></i>
+            Read All Reviews on Google
+          </a>
         </div>
       </div>
     </div>
@@ -1783,72 +2346,6 @@
           </div>
         </div>
 
-        <!-- Raksha Multispeciality Hospital -->
-        <div class="hospital-card reveal">
-          <div class="hospital-header">
-            <div class="hospital-icon">
-              <i class="fas fa-hospital"></i>
-            </div>
-            <div class="hospital-title">
-              <h3>Raksha Multispeciality</h3>
-              <p class="hospital-location">Andheri East, Mumbai</p>
-            </div>
-          </div>
-          
-          <div class="hospital-info">
-            <div class="info-row">
-              <i class="fas fa-clock"></i>
-              <p><strong>Timings:</strong> 11:00 AM - 12:00 PM</p>
-            </div>
-            <div class="info-row">
-              <i class="fas fa-calendar-alt"></i>
-              <p><strong>Days:</strong> Monday - Saturday</p>
-            </div>
-          </div>
-          
-          <div class="hospital-actions">
-            <a href="tel:+919819555486" class="hospital-btn">
-              <i class="fas fa-phone"></i> Call
-            </a>
-            <a href="https://maps.app.goo.gl/FraFEoCZ5WTUYPCfA" target="_blank" rel="noopener noreferrer" class="hospital-btn">
-              <i class="fas fa-directions"></i> Directions
-            </a>
-          </div>
-        </div>
-
-        <!-- Bluebell Hospital -->
-        <div class="hospital-card reveal">
-          <div class="hospital-header">
-            <div class="hospital-icon">
-              <i class="fas fa-hospital"></i>
-            </div>
-            <div class="hospital-title">
-              <h3>Bluebell Hospital</h3>
-              <p class="hospital-location">Jogeshwari West, Mumbai</p>
-            </div>
-          </div>
-          
-          <div class="hospital-info">
-            <div class="info-row">
-              <i class="fas fa-clock"></i>
-              <p><strong>Timings:</strong> 12:00 PM - 1:00 PM</p>
-            </div>
-            <div class="info-row">
-              <i class="fas fa-calendar-alt"></i>
-              <p><strong>Days:</strong> Monday - Saturday</p>
-            </div>
-          </div>
-          
-          <div class="hospital-actions">
-            <a href="tel:+919819555486" class="hospital-btn">
-              <i class="fas fa-phone"></i> Call
-            </a>
-            <a href="https://maps.app.goo.gl/ziUuL3ngY3NzkAGU9" target="_blank" rel="noopener noreferrer" class="hospital-btn">
-              <i class="fas fa-directions"></i> Directions
-            </a>
-          </div>
-        </div>
-
         <!-- BSES MG Hospital -->
         <div class="hospital-card reveal">
           <div class="hospital-header">
@@ -1882,7 +2379,40 @@
           </div>
         </div>
 
-        <!-- By Appointment -->
+        <!-- Yati Multispeciality Hospital -->
+        <div class="hospital-card reveal">
+          <div class="hospital-header">
+            <div class="hospital-icon">
+              <i class="fas fa-hospital"></i>
+            </div>
+            <div class="hospital-title">
+              <h3>Yati Multispeciality Hospital</h3>
+              <p class="hospital-location">Andheri East, Mumbai</p>
+            </div>
+          </div>
+          
+          <div class="hospital-info">
+            <div class="info-row">
+              <i class="fas fa-clock"></i>
+              <p><strong>Timings:</strong> 11:00 AM - 1:00 PM</p>
+            </div>
+            <div class="info-row">
+              <i class="fas fa-calendar-alt"></i>
+              <p><strong>Days:</strong> Monday - Saturday</p>
+            </div>
+          </div>
+          
+          <div class="hospital-actions">
+            <a href="tel:+919819555486" class="hospital-btn">
+              <i class="fas fa-phone"></i> Call
+            </a>
+            <a href="https://maps.app.goo.gl/autzRTXomfgWt6gh9" target="_blank" rel="noopener noreferrer" class="hospital-btn">
+              <i class="fas fa-directions"></i> Directions
+            </a>
+          </div>
+        </div>
+
+        <!-- By Appointment - Andheri -->
         <div class="hospital-card reveal">
           <div class="hospital-header">
             <div class="hospital-icon">
@@ -1890,11 +2420,45 @@
             </div>
             <div class="hospital-title">
               <h3>By Appointment Only</h3>
-              <p class="hospital-location">Multiple Locations</p>
+              <p class="hospital-location">Andheri, Mumbai</p>
             </div>
           </div>
           
           <div class="hospital-info">
+            <div class="info-row">
+              <i class="fas fa-hospital-user"></i>
+              <p><strong>Raksha Multispeciality</strong> - Andheri East</p>
+            </div>
+            <div class="info-row">
+              <i class="fas fa-hospital-user"></i>
+              <p><strong>Criticare Asia Hospital</strong> - Andheri East & Andheri West</p>
+            </div>
+          </div>
+          
+          <div class="hospital-actions">
+            <a href="tel:+919819555486" class="hospital-btn full-width">
+              <i class="fas fa-phone"></i> Book Appointment
+            </a>
+          </div>
+        </div>
+
+        <!-- By Appointment - Jogeshwari -->
+        <div class="hospital-card reveal">
+          <div class="hospital-header">
+            <div class="hospital-icon">
+              <i class="fas fa-calendar-check"></i>
+            </div>
+            <div class="hospital-title">
+              <h3>By Appointment Only</h3>
+              <p class="hospital-location">Jogeshwari, Mumbai</p>
+            </div>
+          </div>
+          
+          <div class="hospital-info">
+            <div class="info-row">
+              <i class="fas fa-hospital-user"></i>
+              <p><strong>Bluebell Hospital</strong> - Jogeshwari West</p>
+            </div>
             <div class="info-row">
               <i class="fas fa-hospital-user"></i>
               <p><strong>Mallika Multispeciality</strong> - Jogeshwari West</p>
@@ -1902,10 +2466,6 @@
             <div class="info-row">
               <i class="fas fa-hospital-user"></i>
               <p><strong>AllCure Super Speciality</strong> - Jogeshwari East</p>
-            </div>
-            <div class="info-row">
-              <i class="fas fa-hospital-user"></i>
-              <p><strong>Criticare Asia Hospital</strong> - Andheri</p>
             </div>
           </div>
           
@@ -1930,7 +2490,7 @@
       <div class="gallery-slideshow reveal">
         <!-- Previous image preview -->
         <div class="gallery-preview prev" id="galleryPreviewPrev">
-          <img src="content/images/gallery-4.jpg" alt="Previous image" />
+          <img src="content/images/gallery-9.jpg" alt="Previous image" />
         </div>
         
         <!-- Main slideshow track -->
@@ -1939,6 +2499,11 @@
           <img src="content/images/gallery-2.jpg" alt="Advanced orthopaedic equipment" class="gallery-slide" />
           <img src="content/images/gallery-3.jpg" alt="Patient care excellence" class="gallery-slide" />
           <img src="content/images/gallery-4.jpg" alt="Modern treatment rooms" class="gallery-slide" />
+          <img src="content/images/gallery-5.jpg" alt="Dr. Mushir Siddiqui practice" class="gallery-slide" />
+          <img src="content/images/gallery-6.jpg" alt="Medical facility and care" class="gallery-slide" />
+          <img src="content/images/gallery-7.jpg" alt="Orthopaedic treatment center" class="gallery-slide" />
+          <img src="content/images/gallery-8.jpg" alt="Patient consultation room" class="gallery-slide" />
+          <img src="content/images/gallery-9.jpg" alt="Medical excellence" class="gallery-slide" />
           
           <button class="gallery-nav prev" aria-label="Previous image">
             <i class="fas fa-chevron-left"></i>
@@ -1952,6 +2517,11 @@
             <span class="gallery-dot" data-gallery-slide="1"></span>
             <span class="gallery-dot" data-gallery-slide="2"></span>
             <span class="gallery-dot" data-gallery-slide="3"></span>
+            <span class="gallery-dot" data-gallery-slide="4"></span>
+            <span class="gallery-dot" data-gallery-slide="5"></span>
+            <span class="gallery-dot" data-gallery-slide="6"></span>
+            <span class="gallery-dot" data-gallery-slide="7"></span>
+            <span class="gallery-dot" data-gallery-slide="8"></span>
           </div>
         </div>
         
@@ -2021,11 +2591,9 @@
       <div class="footer-section">
         <h4>Quick Links</h4>
         <ul class="footer-links">
-          <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
-          <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
-          <li><a href="#hospitals"><i class="fas fa-chevron-right"></i> Hospitals</a></li>
-          <li><a href="#gallery"><i class="fas fa-chevron-right"></i> Gallery</a></li>
-          <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+          <li><a href="https://youtu.be/loxBPDer83g?si=tw68JynUatE99k3e" target="_blank" rel="noopener noreferrer"><i class="fas fa-chevron-right"></i> Introduction</a></li>
+          <li><a href="https://youtu.be/oQZnz-R6yZ0?si=z7c5b0FrJIk4k_yb" target="_blank" rel="noopener noreferrer"><i class="fas fa-chevron-right"></i> Awareness on Bone and Joint Health #1</a></li>
+          <li><a href="https://youtu.be/2KFhg-9kbgI?si=485lo7mYdUnAu1ZJ" target="_blank" rel="noopener noreferrer"><i class="fas fa-chevron-right"></i> Awareness on Bone and Joint Health #2</a></li>
         </ul>
       </div>
       
@@ -2037,6 +2605,7 @@
           <li><a href="#services"><i class="fas fa-chevron-right"></i> Sports Medicine</a></li>
           <li><a href="#services"><i class="fas fa-chevron-right"></i> Spine & Back Surgery</a></li>
           <li><a href="#services"><i class="fas fa-chevron-right"></i> Arthritis Management</a></li>
+          <li><a href="#testimonials"><i class="fas fa-chevron-right"></i> Testimonials</a></li>
         </ul>
       </div>
       
@@ -2205,7 +2774,12 @@
       "content/images/gallery-1.jpg",
       "content/images/gallery-2.jpg",
       "content/images/gallery-3.jpg",
-      "content/images/gallery-4.jpg"
+      "content/images/gallery-4.jpg",
+      "content/images/gallery-5.jpg",
+      "content/images/gallery-6.jpg",
+      "content/images/gallery-7.jpg",
+      "content/images/gallery-8.jpg",
+      "content/images/gallery-9.jpg"
     ];
 
     // Function to update preview images
@@ -2351,6 +2925,80 @@
           notification.remove();
         }, 400);
       }, 5000);
+    }
+
+    // Testimonials Slider
+    let currentTestimonial = 0;
+    const testimonialCards = document.querySelectorAll(".testimonial-card");
+    const testimonialDots = document.querySelectorAll(".testimonial-dot");
+    const testimonialPrevBtn = document.querySelector(".testimonial-nav.prev");
+    const testimonialNextBtn = document.querySelector(".testimonial-nav.next");
+    const testimonialInterval = 6000; // 6 seconds delay
+
+    // Function to show a specific testimonial
+    function showTestimonial(index) {
+      // Remove active class from all cards and dots
+      testimonialCards.forEach(card => card.classList.remove("active"));
+      testimonialDots.forEach(dot => dot.classList.remove("active"));
+
+      // Add active class to current card and dot
+      testimonialCards[index].classList.add("active");
+      testimonialDots[index].classList.add("active");
+      
+      currentTestimonial = index;
+    }
+
+    // Function to go to next testimonial
+    function nextTestimonial() {
+      currentTestimonial = (currentTestimonial + 1) % testimonialCards.length;
+      showTestimonial(currentTestimonial);
+    }
+
+    // Function to go to previous testimonial
+    function prevTestimonial() {
+      currentTestimonial = (currentTestimonial - 1 + testimonialCards.length) % testimonialCards.length;
+      showTestimonial(currentTestimonial);
+    }
+
+    // Auto-advance testimonials every 6 seconds
+    let testimonialTimer = setInterval(nextTestimonial, testimonialInterval);
+
+    // Add click event to testimonial dots
+    testimonialDots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        clearInterval(testimonialTimer);
+        showTestimonial(index);
+        testimonialTimer = setInterval(nextTestimonial, testimonialInterval);
+      });
+    });
+
+    // Add click events to navigation arrows
+    if (testimonialPrevBtn) {
+      testimonialPrevBtn.addEventListener("click", () => {
+        clearInterval(testimonialTimer);
+        prevTestimonial();
+        testimonialTimer = setInterval(nextTestimonial, testimonialInterval);
+      });
+    }
+
+    if (testimonialNextBtn) {
+      testimonialNextBtn.addEventListener("click", () => {
+        clearInterval(testimonialTimer);
+        nextTestimonial();
+        testimonialTimer = setInterval(nextTestimonial, testimonialInterval);
+      });
+    }
+
+    // Pause testimonial slider on hover
+    const testimonialSlider = document.querySelector(".testimonials-slider");
+    if (testimonialSlider) {
+      testimonialSlider.addEventListener("mouseenter", () => {
+        clearInterval(testimonialTimer);
+      });
+
+      testimonialSlider.addEventListener("mouseleave", () => {
+        testimonialTimer = setInterval(nextTestimonial, testimonialInterval);
+      });
     }
 
     // Consultation Form Handler
