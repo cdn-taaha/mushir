@@ -21,6 +21,17 @@
   
   <style>
     /* ========================================
+       FONT FACE DECLARATIONS
+       ======================================== */
+    @font-face {
+      font-family: "Calisto MT";
+      src: url("fonts/calisto-mt.ttf") format("truetype");
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* ========================================
        CSS RESET & VARIABLES
        ======================================== */
     *, *::before, *::after {
@@ -31,11 +42,11 @@
 
     :root {
       /* Color System */
-      --primary-blue: #0891b2;
-      --primary-dark: #0e7490;
-      --primary-light: #06b6d4;
-      --accent-blue: #3b82f6;
-      --deep-blue: #1e40af;
+      --primary-blue: rgba(6, 111, 135);
+      --primary-dark: rgba(6, 111, 135);
+      --primary-light: rgba(6, 111, 135);
+      --accent-blue: rgba(6, 111, 135);
+      --deep-blue: rgba(6, 111, 135);
       
       /* Neutrals */
       --white: #ffffff;
@@ -54,11 +65,11 @@
       --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
       --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
       --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-      --shadow-blue: 0 10px 30px -5px rgba(8, 145, 178, 0.3);
+      --shadow-blue: 0 10px 30px -5px rgba(6, 111, 135, 0.3);
       
       /* Typography */
-      --font-primary: "Plus Jakarta Sans", sans-serif;
-      --font-secondary: "Inter", sans-serif;
+      --font-primary: "Calisto MT", "Book Antiqua", Palatino, serif;
+      --font-secondary: "Calisto MT", "Book Antiqua", Palatino, serif;
       
       /* Borders */
       --radius-lg: 0.75rem;
@@ -108,7 +119,7 @@
        TYPOGRAPHY
        ======================================== */
     h1, h2, h3, h4 {
-      font-family: var(--font-primary);
+      font-family: "Calisto MT", "Book Antiqua", Palatino, serif;
       font-weight: 700;
       line-height: 1.2;
       color: var(--gray-900);
@@ -120,7 +131,7 @@
     h4 { font-size: clamp(1.25rem, 3vw, 1.5rem); }
 
     p {
-      font-family: var(--font-secondary);
+      font-family: "Calisto MT", "Book Antiqua", Palatino, serif;
       font-size: clamp(1rem, 2vw, 1.125rem);
       color: var(--gray-600);
       line-height: 1.7;
@@ -259,7 +270,7 @@
       font-weight: 600;
       font-size: 0.875rem;
       letter-spacing: 0.01em;
-      box-shadow: 0 2px 8px rgba(8, 145, 178, 0.25);
+      box-shadow: 0 2px 8px rgba(6, 111, 135, 0.25);
       transition: all var(--transition-base);
       display: inline-flex;
       align-items: center;
@@ -268,7 +279,7 @@
 
     .nav-cta:hover {
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(8, 145, 178, 0.35);
+      box-shadow: 0 4px 12px rgba(6, 111, 135, 0.35);
     }
 
     .nav-cta i {
@@ -286,8 +297,6 @@
        ======================================== */
     .hero {
       min-height: 100vh;
-      display: grid;
-      align-items: center;
       background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #bae6fd 100%);
       position: relative;
       padding-top: 80px;
@@ -307,16 +316,42 @@
       pointer-events: none;
     }
 
-    .hero-grid {
+    .hero-images-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 3rem;
+      align-items: stretch;
+      margin-top: 2rem;
+      margin-bottom: 3rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-main-image {
+      display: flex;
+      justify-content: center;
       align-items: center;
+      padding: 0;
+      position: relative;
+      height: 580px;
+      width: 100%;
+    }
+
+    .hero-main-image img {
+      max-width: 100%;
+      width: auto;
+      height: 100%;
+      max-height: 580px;
+      object-fit: contain;
+      border-radius: 30px;
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
     }
 
     .hero-badge {
@@ -330,10 +365,9 @@
       font-size: 0.8125rem;
       font-weight: 600;
       color: #b45309;
-      margin-top: 2rem;
+      margin-top: 0;
       margin-bottom: 1rem;
       box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(245, 158, 11, 0.2);
-      align-self: flex-start;
       position: relative;
       overflow: visible;
       transition: all var(--transition-base);
@@ -397,13 +431,18 @@
     .hero-content {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
     }
 
     .hero h1 {
       margin-bottom: 0.75rem;
       line-height: 1.1;
       font-size: clamp(2rem, 5vw, 3rem);
+      font-family: "Calisto MT", "Book Antiqua", Palatino, serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      color: var(--primary-blue);
     }
 
     .hero-subtitle {
@@ -411,6 +450,7 @@
       color: var(--gray-700);
       font-weight: 600;
       margin-bottom: 1rem;
+      font-family: "Calisto MT", "Book Antiqua", Palatino, serif;
     }
 
     .hero-description {
@@ -418,6 +458,7 @@
       color: var(--gray-600);
       margin-bottom: 1.75rem;
       line-height: 1.6;
+      font-family: "Calisto MT", "Book Antiqua", Palatino, serif;
     }
 
     .hero-buttons {
@@ -443,6 +484,9 @@
       background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
       color: var(--white);
       box-shadow: var(--shadow-blue);
+      font-size: 1.2rem; /* Match btn-secondary size */
+      padding: 0.65rem 1.35rem; /* Match btn-secondary padding */
+      border: 2px solid transparent; /* Match btn-secondary border for same height */
     }
 
     .btn-primary:hover {
@@ -454,6 +498,20 @@
       background: var(--white);
       color: var(--primary-blue);
       border: 2px solid var(--primary-blue);
+      font-size: 1.2rem; /* Increased from 0.9375rem */
+      padding: 0.65rem 1.35rem; /* Explicit padding to match btn-primary */
+    }
+    
+    /* Style phone number - make it bold and bigger */
+    .btn-secondary .phone-number {
+      font-weight: 700; /* Bold */
+      font-size: 1.35rem; /* Bigger than button base size */
+      letter-spacing: 0.02em; /* Slight spacing for readability */
+    }
+    
+    /* Flip phone icon horizontally */
+    .btn-secondary .fa-phone-alt {
+      transform: scaleX(-1); /* Flip phone icon horizontally */
     }
 
     .btn-secondary:hover {
@@ -461,19 +519,41 @@
       color: var(--white);
       transform: translateY(-3px);
     }
+    
+    /* Keep icon flipped on hover */
+    .btn-secondary:hover .fa-phone-alt {
+      transform: scaleX(-1); /* Keep flipped on hover */
+    }
 
     .hero-image-slider {
       position: relative;
-      height: 480px;
+      height: 580px;
       border-radius: var(--radius-2xl);
       overflow: hidden;
       box-shadow: var(--shadow-xl);
+      width: 100%;
+      touch-action: pan-x pan-y; /* Enable swipe detection while allowing scrolling */
+      cursor: grab; /* Show grab cursor on desktop */
+    }
+
+    .hero-image-slider:active {
+      cursor: grabbing; /* Show grabbing cursor when dragging */
     }
 
     .slider-track {
       position: relative;
       width: 100%;
       height: 100%;
+      touch-action: pan-x pan-y; /* Allow both horizontal and vertical panning for swipe detection */
+      user-select: none; /* Prevent text selection during swipe */
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      cursor: grab; /* Show grab cursor on desktop */
+    }
+
+    .slider-track:active {
+      cursor: grabbing; /* Show grabbing cursor when dragging */
     }
 
     .slider-image {
@@ -525,7 +605,7 @@
     .dot.active {
       width: 28px;
       background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
-      box-shadow: 0 2px 8px rgba(8, 145, 178, 0.6), 0 0 0 2px rgba(255, 255, 255, 0.3);
+      box-shadow: 0 2px 8px rgba(6, 111, 135, 0.6), 0 0 0 2px rgba(255, 255, 255, 0.3);
     }
 
     .dot.active:hover {
@@ -609,13 +689,13 @@
 
     .doctor-intro h3 {
       font-size: clamp(1.75rem, 4vw, 2.25rem);
-      color: var(--gray-900);
+      color: var(--primary-blue);
       margin-bottom: 0.5rem;
     }
 
     .doctor-intro .title {
       font-size: 1.125rem;
-      color: var(--primary-blue);
+      color: var(--gray-900);
       font-weight: 600;
       margin-bottom: 1.5rem;
     }
@@ -767,6 +847,13 @@
     .testimonials-track {
       position: relative;
       min-height: 480px;
+      touch-action: pan-x pan-y;
+      -webkit-overflow-scrolling: touch;
+      cursor: grab;
+    }
+
+    .testimonials-track:active {
+      cursor: grabbing;
     }
 
     .testimonial-card {
@@ -869,7 +956,7 @@
       transform: translateY(-50%);
       width: 50px;
       height: 50px;
-      background: rgba(8, 145, 178, 0.9);
+      background: rgba(6, 111, 135, 0.9);
       backdrop-filter: blur(10px);
       border-radius: 50%;
       display: flex;
@@ -886,7 +973,7 @@
     .testimonial-nav:hover {
       background: var(--primary-blue);
       transform: translateY(-50%) scale(1.1);
-      box-shadow: 0 4px 12px rgba(8, 145, 178, 0.4);
+      box-shadow: 0 4px 12px rgba(6, 111, 135, 0.4);
     }
 
     .testimonial-nav.prev {
@@ -909,21 +996,21 @@
       width: 10px;
       height: 10px;
       border-radius: var(--radius-full);
-      background: rgba(8, 145, 178, 0.3);
+      background: rgba(6, 111, 135, 0.3);
       cursor: pointer;
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       border: none;
     }
 
     .testimonial-dot:hover {
-      background: rgba(8, 145, 178, 0.5);
+      background: rgba(6, 111, 135, 0.5);
       transform: scale(1.2);
     }
 
     .testimonial-dot.active {
       width: 32px;
       background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
-      box-shadow: 0 2px 8px rgba(8, 145, 178, 0.6);
+      box-shadow: 0 2px 8px rgba(6, 111, 135, 0.6);
     }
 
     .google-review-btn {
@@ -992,7 +1079,7 @@
     }
 
     .hospital-card {
-      background: linear-gradient(135deg, #0e7490 0%, #0891b2 50%, #06b6d4 100%);
+      background: linear-gradient(135deg, rgba(6, 111, 135) 0%, rgba(6, 111, 135) 50%, rgba(6, 111, 135) 100%);
       border-radius: var(--radius-2xl);
       padding: 1.75rem;
       color: var(--white);
@@ -1183,6 +1270,16 @@
       overflow: hidden;
       box-shadow: var(--shadow-xl);
       flex-shrink: 0;
+      touch-action: pan-x pan-y; /* Allow both horizontal and vertical panning for swipe detection */
+      user-select: none; /* Prevent text selection during swipe */
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      cursor: grab; /* Show grab cursor on desktop */
+    }
+
+    .gallery-track:active {
+      cursor: grabbing; /* Show grabbing cursor when dragging */
     }
 
     .gallery-slide {
@@ -1212,7 +1309,7 @@
       transition: all var(--transition-base);
       opacity: 0.7;
       flex-shrink: 0;
-      border: 3px solid rgba(8, 145, 178, 0.3);
+      border: 3px solid rgba(6, 111, 135, 0.3);
     }
 
     .gallery-preview:hover {
@@ -1237,7 +1334,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, transparent 50%, rgba(8, 145, 178, 0.3) 100%);
+      background: linear-gradient(to bottom, transparent 50%, rgba(6, 111, 135, 0.3) 100%);
       opacity: 0;
       transition: opacity var(--transition-base);
     }
@@ -1261,7 +1358,7 @@
       transform: translateY(-50%);
       width: 50px;
       height: 50px;
-      background: rgba(8, 145, 178, 0.9);
+      background: rgba(6, 111, 135, 0.9);
       backdrop-filter: blur(10px);
       border-radius: 50%;
       display: flex;
@@ -1278,7 +1375,7 @@
     .gallery-nav:hover {
       background: var(--primary-blue);
       transform: translateY(-50%) scale(1.1);
-      box-shadow: 0 4px 12px rgba(8, 145, 178, 0.4);
+      box-shadow: 0 4px 12px rgba(6, 111, 135, 0.4);
     }
 
     .gallery-nav.prev {
@@ -1323,7 +1420,7 @@
     .gallery-dot.active {
       width: 32px;
       background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
-      box-shadow: 0 2px 8px rgba(8, 145, 178, 0.6), 0 0 0 2px rgba(255, 255, 255, 0.3);
+      box-shadow: 0 2px 8px rgba(6, 111, 135, 0.6), 0 0 0 2px rgba(255, 255, 255, 0.3);
     }
 
     .gallery-dot.active:hover {
@@ -1485,7 +1582,7 @@
     .form-group input:focus,
     .form-group textarea:focus {
       border-color: var(--primary-blue);
-      box-shadow: 0 0 0 3px rgba(8, 145, 178, 0.1);
+      box-shadow: 0 0 0 3px rgba(6, 111, 135, 0.1);
     }
 
     .form-group textarea {
@@ -1521,7 +1618,7 @@
     .btn-submit:hover {
       opacity: 0.9;
       transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(8, 145, 178, 0.3);
+      box-shadow: 0 4px 12px rgba(6, 111, 135, 0.3);
     }
 
     .btn-submit:disabled {
@@ -1705,13 +1802,24 @@
        RESPONSIVE DESIGN
        ======================================== */
     @media (max-width: 1024px) {
-      .hero-grid {
+      .hero-images-row {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .hero-main-image {
+        padding: 0;
+        height: 550px;
+      }
+
+      .hero-main-image img {
+        max-height: 550px;
+        border-radius: 30px;
       }
 
       .hero-image-slider {
-        height: 450px;
+        height: 550px;
       }
 
       .hero-stats {
@@ -1768,8 +1876,24 @@
         gap: 1.5rem;
       }
 
+      .hero-images-row {
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .hero-main-image {
+        padding: 0;
+        height: 420px;
+      }
+
+      .hero-main-image img {
+        max-height: 420px;
+        border-radius: 30px;
+      }
+
       .hero-image-slider {
-        height: 350px;
+        height: 420px;
       }
 
       .hero-buttons {
@@ -1901,64 +2025,71 @@
   <!-- HERO SECTION -->
   <section class="hero section" id="home">
     <div class="container">
-      <div class="hero-grid">
-        <div class="hero-content">
-          <div class="hero-badge">
-            <i class="fas fa-certificate"></i>
-            <span>Board Certified Orthopaedic Surgeon</span>
-          </div>
-          
-          <h1>Dr. Mushir M. Siddiqui</h1>
-          <p class="hero-subtitle">Expert Orthopaedic Surgeon</p>
-          <p class="hero-description">
-            Providing world-class orthopaedic care across Mumbai with expertise in joint replacements, 
-            fracture treatments, sports injuries, and advanced spine & back surgeries. Your journey to pain-free 
-            movement starts here.
-          </p>
-
-          <div class="hero-rating">
-            <div class="rating-stars">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star-half-alt"></i>
-            </div>
-            <span class="rating-number">4.9/5</span>
-            <span class="rating-text">Across 300+ Reviews</span>
-          </div>
-          
-          <div class="hero-buttons">
-            <a href="#hospitals" class="btn btn-primary">
-              <i class="fas fa-calendar-check"></i>
-              View Consultation Timings
-            </a>
-            <a href="tel:+919819555486" class="btn btn-secondary">
-              <i class="fas fa-phone-alt"></i>
-              +91 98195 55486
-            </a>
-          </div>
-          
-          <div class="hero-stats">
-            <div class="stat-card">
-              <span class="stat-number">7+</span>
-              <span class="stat-label">Hospital Locations</span>
-            </div>
-            <div class="stat-card">
-              <span class="stat-number">6+</span>
-              <span class="stat-label">Years Experience</span>
-            </div>
-            <div class="stat-card">
-              <span class="stat-number">100%</span>
-              <span class="stat-label">Patient Satisfaction</span>
-            </div>
-            <div class="stat-card">
-              <span class="stat-number">300+</span>
-              <span class="stat-label">Surgeries</span>
-            </div>
-          </div>
+      <!-- Hero Content Above Images -->
+      <div class="hero-content">
+        <div class="hero-badge">
+          <i class="fas fa-certificate"></i>
+          <span>Board Certified Orthopaedic Surgeon</span>
         </div>
         
+        <h1>Dr. Mushir M. Siddiqui</h1>
+        <p class="hero-subtitle">Expert Orthopaedic Surgeon</p>
+        <p class="hero-description">
+          Providing world-class orthopaedic care across Mumbai with expertise in joint replacements, 
+          fracture treatments, sports injuries, and advanced spine & back surgeries. Your journey to pain-free 
+          movement starts here.
+        </p>
+
+        <div class="hero-rating">
+          <div class="rating-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <span class="rating-number">4.9/5</span>
+          <span class="rating-text">Across 350+ Reviews</span>
+        </div>
+        
+        <div class="hero-buttons">
+          <a href="#hospitals" class="btn btn-primary">
+            <i class="fas fa-calendar-check"></i>
+            View Consultation Timings
+          </a>
+          <a href="tel:+919819555486" class="btn btn-secondary">
+            <i class="fas fa-phone-alt"></i>
+            <span class="phone-number">9819 555 486</span>
+          </a>
+        </div>
+        
+        <div class="hero-stats">
+          <div class="stat-card">
+            <span class="stat-number">7+</span>
+            <span class="stat-label">Hospital Locations</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">6+</span>
+            <span class="stat-label">Years Experience</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Patient Satisfaction</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">300+</span>
+            <span class="stat-label">Surgeries</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Hero Image and Slider Side by Side -->
+      <div class="hero-images-row">
+        <div class="hero-main-image">
+          <img src="images/hero-img-modified.png" alt="Dr. Mushir M. Siddiqui" />
+        </div>
+        
+        <!-- Image Slider -->
         <div class="hero-image-slider">
           <div class="slider-track">
             <img src="content/images/main-0.jpg" alt="Dr. Mushir M. Siddiqui - Main Image" class="slider-image active" />
@@ -2238,6 +2369,84 @@
             </p>
           </div>
 
+          <!-- Testimonial 5 - Muskaan Shivani -->
+          <div class="testimonial-card">
+            <div class="testimonial-quote">
+              <i class="fas fa-quote-left"></i>
+            </div>
+            <div class="testimonial-header">
+              <div class="testimonial-author">
+                <img src="content/images/review-muskaan.png" alt="Muskaan Shivani" class="testimonial-avatar" style="border-radius: 50%; object-fit: cover;" />
+                <div class="testimonial-info">
+                  <h4>Muskaan Shivani</h4>
+                  <p class="testimonial-date">Patient Review</p>
+                </div>
+              </div>
+              <div class="testimonial-stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+            <p class="testimonial-text">
+              Dr. Siddiqui is truly one of the kindest and most genuine doctors I've ever met. He took the time to actually understand my case in depth instead of rushing through the consultation. He was extremely patient, honest, and reassuring throughout the entire process. What stood out the most was how down-to-earth and trustworthy he was, he went far beyond just giving a diagnosis and genuinely helped me understand what was happening and how to move forward. I highly recommend him to anyone looking for a doctor who actually listens, understands, and cares.
+            </p>
+          </div>
+
+          <!-- Testimonial 6 - Megha Somani -->
+          <div class="testimonial-card">
+            <div class="testimonial-quote">
+              <i class="fas fa-quote-left"></i>
+            </div>
+            <div class="testimonial-header">
+              <div class="testimonial-author">
+                <img src="content/images/megha-review.png" alt="Megha Somani" class="testimonial-avatar" style="border-radius: 50%; object-fit: cover;" />
+                <div class="testimonial-info">
+                  <h4>Megha Somani</h4>
+                  <p class="testimonial-date">Patient Review</p>
+                </div>
+              </div>
+              <div class="testimonial-stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+            <p class="testimonial-text">
+              Dr. Siddiqui stands out as an exceptional and genuine orthopedic specialist in our city. Even after seeking treatment for my mom in several metropolitan areas, no one was able to provide the knee relief she desperately needed, especially considering her age made knee surgery a risky option. Thanks to Dr. Siddiqui's personalized care and sincere advice, my mom is now able to walk again. His dedication to his patients' well-being is truly remarkable, as he prioritizes their needs over financial gain.
+            </p>
+          </div>
+
+          <!-- Testimonial 7 - Pooja Sawant -->
+          <div class="testimonial-card">
+            <div class="testimonial-quote">
+              <i class="fas fa-quote-left"></i>
+            </div>
+            <div class="testimonial-header">
+              <div class="testimonial-author">
+                <img src="content/images/pooja-review.png" alt="Pooja Sawant" class="testimonial-avatar" style="border-radius: 50%; object-fit: cover;" />
+                <div class="testimonial-info">
+                  <h4>Pooja Sawant</h4>
+                  <p class="testimonial-date">Patient Review</p>
+                </div>
+              </div>
+              <div class="testimonial-stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+            <p class="testimonial-text">
+              Dr. Siddiqui is to me the best in his field. He is very attentive and cares about you. You can't find a better orthopedic surgeon than him. My ankle is working fine now... Best and perfect treatment.....Thank you doctor for everything......
+            </p>
+          </div>
+
           <button class="testimonial-nav prev" aria-label="Previous testimonial">
             <i class="fas fa-chevron-left"></i>
           </button>
@@ -2251,12 +2460,15 @@
           <button class="testimonial-dot" data-testimonial="1"></button>
           <button class="testimonial-dot" data-testimonial="2"></button>
           <button class="testimonial-dot" data-testimonial="3"></button>
+          <button class="testimonial-dot" data-testimonial="4"></button>
+          <button class="testimonial-dot" data-testimonial="5"></button>
+          <button class="testimonial-dot" data-testimonial="6"></button>
         </div>
 
         <div style="text-align: center;">
           <a href="https://share.google/CPYG0SbPfIAjpgpZU" target="_blank" rel="noopener noreferrer" class="google-review-btn">
             <i class="fab fa-google"></i>
-            Read All Reviews on Google
+            Read All 350+ Reviews on Google
           </a>
         </div>
       </div>
@@ -2490,7 +2702,7 @@
       <div class="gallery-slideshow reveal">
         <!-- Previous image preview -->
         <div class="gallery-preview prev" id="galleryPreviewPrev">
-          <img src="content/images/gallery-9.jpg" alt="Previous image" />
+          <img src="content/images/gallery-15.jpg" alt="Previous image" />
         </div>
         
         <!-- Main slideshow track -->
@@ -2504,13 +2716,12 @@
           <img src="content/images/gallery-7.jpg" alt="Orthopaedic treatment center" class="gallery-slide" />
           <img src="content/images/gallery-8.jpg" alt="Patient consultation room" class="gallery-slide" />
           <img src="content/images/gallery-9.jpg" alt="Medical excellence" class="gallery-slide" />
-          
-          <button class="gallery-nav prev" aria-label="Previous image">
-            <i class="fas fa-chevron-left"></i>
-          </button>
-          <button class="gallery-nav next" aria-label="Next image">
-            <i class="fas fa-chevron-right"></i>
-          </button>
+          <img src="content/images/gallery-10.jpg" alt="Healthcare excellence" class="gallery-slide" />
+          <img src="content/images/gallery-11.jpg" alt="Advanced medical care" class="gallery-slide" />
+          <img src="content/images/gallery-12.jpg" alt="Patient-focused treatment" class="gallery-slide" />
+          <img src="content/images/gallery-13.jpg" alt="Medical facility showcase" class="gallery-slide" />
+          <img src="content/images/gallery-14.jpg" alt="Quality healthcare services" class="gallery-slide" />
+          <img src="content/images/gallery-15.jpg" alt="Professional medical practice" class="gallery-slide" />
           
           <div class="gallery-dots">
             <span class="gallery-dot active" data-gallery-slide="0"></span>
@@ -2522,6 +2733,12 @@
             <span class="gallery-dot" data-gallery-slide="6"></span>
             <span class="gallery-dot" data-gallery-slide="7"></span>
             <span class="gallery-dot" data-gallery-slide="8"></span>
+            <span class="gallery-dot" data-gallery-slide="9"></span>
+            <span class="gallery-dot" data-gallery-slide="10"></span>
+            <span class="gallery-dot" data-gallery-slide="11"></span>
+            <span class="gallery-dot" data-gallery-slide="12"></span>
+            <span class="gallery-dot" data-gallery-slide="13"></span>
+            <span class="gallery-dot" data-gallery-slide="14"></span>
           </div>
         </div>
         
@@ -2551,7 +2768,7 @@
           <div class="form-row">
             <div class="form-group">
               <label for="phone">Phone</label>
-              <input type="tel" id="phone" name="phone" placeholder="+91 98195 55486" required />
+              <input type="tel" id="phone" name="phone" placeholder="9819 555 486" required />
             </div>
             
             <div class="form-group">
@@ -2612,7 +2829,7 @@
       <div class="footer-section">
         <h4>Contact Information</h4>
         <ul class="footer-links">
-          <li><a href="tel:+919819555486"><i class="fas fa-phone"></i> +91 98195 55486</a></li>
+          <li><a href="tel:+919819555486"><i class="fas fa-phone"></i> 9819 555 486</a></li>
           <li><a href="tel:+919819555486"><i class="fas fa-envelope"></i> ms@mushirsiddiqui.in</a></li>
           <li><a href="https://mushirsiddiqui.in" target="_blank" rel="noopener noreferrer"><i class="fas fa-globe"></i> mushirsiddiqui.in</a></li>
         </ul>
@@ -2734,16 +2951,27 @@
       showSlide(currentSlide);
     }
 
+    // Function to go to previous slide
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+
     // Auto-advance slides every 5 seconds
     let sliderTimer = setInterval(nextSlide, slideInterval);
+
+    // Function to reset timer
+    function resetSliderTimer() {
+      clearInterval(sliderTimer);
+      sliderTimer = setInterval(nextSlide, slideInterval);
+    }
 
     // Add click event to dots for manual navigation
     dots.forEach((dot, index) => {
       dot.addEventListener("click", () => {
         // Reset the timer when user manually changes slide
-        clearInterval(sliderTimer);
+        resetSliderTimer();
         showSlide(index);
-        sliderTimer = setInterval(nextSlide, slideInterval);
       });
     });
 
@@ -2759,12 +2987,117 @@
       });
     }
 
+    // Swipe functionality for touch devices
+    if (sliderContainer) {
+      let touchStartX = 0;
+      let touchEndX = 0;
+      let touchStartY = 0;
+      let touchEndY = 0;
+      const minSwipeDistance = 50; // Minimum distance for a swipe to be recognized
+
+      // Touch start event
+      sliderContainer.addEventListener("touchstart", (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+        // Pause auto-advance during touch interaction
+        clearInterval(sliderTimer);
+      }, { passive: true });
+
+      // Touch move event - prevent default to avoid scrolling while swiping
+      sliderContainer.addEventListener("touchmove", (e) => {
+        // Prevent scrolling if user is swiping horizontally
+        const touch = e.changedTouches[0];
+        const deltaX = Math.abs(touch.screenX - touchStartX);
+        const deltaY = Math.abs(touch.screenY - touchStartY);
+        
+        // If horizontal movement is greater than vertical, prevent default scroll
+        if (deltaX > deltaY && deltaX > 10) {
+          e.preventDefault();
+        }
+      }, { passive: false });
+
+      // Touch end event
+      sliderContainer.addEventListener("touchend", (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        touchEndY = e.changedTouches[0].screenY;
+        
+        // Calculate swipe distance
+        const deltaX = touchEndX - touchStartX;
+        const deltaY = touchEndY - touchStartY;
+        const absDeltaX = Math.abs(deltaX);
+        const absDeltaY = Math.abs(deltaY);
+
+        // Check if it's a horizontal swipe (more horizontal than vertical movement)
+        if (absDeltaX > absDeltaY && absDeltaX > minSwipeDistance) {
+          // Swipe left (next slide)
+          if (deltaX < 0) {
+            nextSlide();
+          }
+          // Swipe right (previous slide)
+          else if (deltaX > 0) {
+            prevSlide();
+          }
+          
+          // Reset timer after swipe
+          resetSliderTimer();
+        }
+        // If it was a tap or small movement, resume auto-advance
+        else {
+          resetSliderTimer();
+        }
+      }, { passive: true });
+
+      // Mouse drag support for desktop (optional)
+      let mouseStartX = 0;
+      let mouseEndX = 0;
+      let isMouseDown = false;
+
+      sliderContainer.addEventListener("mousedown", (e) => {
+        isMouseDown = true;
+        mouseStartX = e.clientX;
+        clearInterval(sliderTimer);
+      });
+
+      sliderContainer.addEventListener("mousemove", (e) => {
+        if (isMouseDown) {
+          // Prevent text selection while dragging
+          e.preventDefault();
+        }
+      });
+
+      sliderContainer.addEventListener("mouseup", (e) => {
+        if (isMouseDown) {
+          mouseEndX = e.clientX;
+          const deltaX = mouseEndX - mouseStartX;
+          const absDeltaX = Math.abs(deltaX);
+
+          if (absDeltaX > minSwipeDistance) {
+            if (deltaX < 0) {
+              nextSlide();
+            } else if (deltaX > 0) {
+              prevSlide();
+            }
+            resetSliderTimer();
+          } else {
+            resetSliderTimer();
+          }
+          
+          isMouseDown = false;
+        }
+      });
+
+      sliderContainer.addEventListener("mouseleave", () => {
+        if (isMouseDown) {
+          isMouseDown = false;
+          resetSliderTimer();
+        }
+      });
+    }
+
     // Gallery Slideshow
     let currentGallerySlide = 0;
     const gallerySlides = document.querySelectorAll(".gallery-slide");
     const galleryDots = document.querySelectorAll(".gallery-dot");
-    const galleryPrevBtn = document.querySelector(".gallery-nav.prev");
-    const galleryNextBtn = document.querySelector(".gallery-nav.next");
     const galleryPreviewPrev = document.getElementById("galleryPreviewPrev");
     const galleryPreviewNext = document.getElementById("galleryPreviewNext");
     const gallerySlideInterval = 4000; // 4 seconds delay
@@ -2779,7 +3112,13 @@
       "content/images/gallery-6.jpg",
       "content/images/gallery-7.jpg",
       "content/images/gallery-8.jpg",
-      "content/images/gallery-9.jpg"
+      "content/images/gallery-9.jpg",
+      "content/images/gallery-10.jpg",
+      "content/images/gallery-11.jpg",
+      "content/images/gallery-12.jpg",
+      "content/images/gallery-13.jpg",
+      "content/images/gallery-14.jpg",
+      "content/images/gallery-15.jpg"
     ];
 
     // Function to update preview images
@@ -2843,42 +3182,31 @@
       });
     });
 
-    // Add click events to navigation arrows
-    if (galleryPrevBtn) {
-      galleryPrevBtn.addEventListener("click", () => {
-        clearInterval(galleryTimer);
-        prevGallerySlide();
-        galleryTimer = setInterval(nextGallerySlide, gallerySlideInterval);
-      });
-    }
-
-    if (galleryNextBtn) {
-      galleryNextBtn.addEventListener("click", () => {
-        clearInterval(galleryTimer);
-        nextGallerySlide();
-        galleryTimer = setInterval(nextGallerySlide, gallerySlideInterval);
-      });
+    // Function to reset gallery timer
+    function resetGalleryTimer() {
+      clearInterval(galleryTimer);
+      galleryTimer = setInterval(nextGallerySlide, gallerySlideInterval);
     }
 
     // Add click events to preview images
     if (galleryPreviewPrev) {
       galleryPreviewPrev.addEventListener("click", () => {
-        clearInterval(galleryTimer);
         prevGallerySlide();
-        galleryTimer = setInterval(nextGallerySlide, gallerySlideInterval);
+        resetGalleryTimer();
       });
     }
 
     if (galleryPreviewNext) {
       galleryPreviewNext.addEventListener("click", () => {
-        clearInterval(galleryTimer);
         nextGallerySlide();
-        galleryTimer = setInterval(nextGallerySlide, gallerySlideInterval);
+        resetGalleryTimer();
       });
     }
 
     // Pause gallery slider on hover
     const galleryContainer = document.querySelector(".gallery-slideshow");
+    const galleryTrack = document.querySelector(".gallery-track");
+    
     if (galleryContainer) {
       galleryContainer.addEventListener("mouseenter", () => {
         clearInterval(galleryTimer);
@@ -2886,6 +3214,113 @@
 
       galleryContainer.addEventListener("mouseleave", () => {
         galleryTimer = setInterval(nextGallerySlide, gallerySlideInterval);
+      });
+    }
+
+    // Swipe functionality for gallery
+    if (galleryTrack) {
+      let touchStartX = 0;
+      let touchEndX = 0;
+      let touchStartY = 0;
+      let touchEndY = 0;
+      const minSwipeDistance = 50; // Minimum distance for a swipe to be recognized
+
+      // Touch start event
+      galleryTrack.addEventListener("touchstart", (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+        // Pause auto-advance during touch interaction
+        clearInterval(galleryTimer);
+      }, { passive: true });
+
+      // Touch move event - prevent default to avoid scrolling while swiping
+      galleryTrack.addEventListener("touchmove", (e) => {
+        // Prevent scrolling if user is swiping horizontally
+        const touch = e.changedTouches[0];
+        const deltaX = Math.abs(touch.screenX - touchStartX);
+        const deltaY = Math.abs(touch.screenY - touchStartY);
+        
+        // If horizontal movement is greater than vertical, prevent default scroll
+        if (deltaX > deltaY && deltaX > 10) {
+          e.preventDefault();
+        }
+      }, { passive: false });
+
+      // Touch end event
+      galleryTrack.addEventListener("touchend", (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        touchEndY = e.changedTouches[0].screenY;
+        
+        // Calculate swipe distance
+        const deltaX = touchEndX - touchStartX;
+        const deltaY = touchEndY - touchStartY;
+        const absDeltaX = Math.abs(deltaX);
+        const absDeltaY = Math.abs(deltaY);
+
+        // Check if it's a horizontal swipe (more horizontal than vertical movement)
+        if (absDeltaX > absDeltaY && absDeltaX > minSwipeDistance) {
+          // Swipe left (next slide)
+          if (deltaX < 0) {
+            nextGallerySlide();
+          }
+          // Swipe right (previous slide)
+          else if (deltaX > 0) {
+            prevGallerySlide();
+          }
+          
+          // Reset timer after swipe
+          resetGalleryTimer();
+        }
+        // If it was a tap or small movement, resume auto-advance
+        else {
+          resetGalleryTimer();
+        }
+      }, { passive: true });
+
+      // Mouse drag support for desktop (optional)
+      let mouseStartX = 0;
+      let mouseEndX = 0;
+      let isMouseDown = false;
+
+      galleryTrack.addEventListener("mousedown", (e) => {
+        isMouseDown = true;
+        mouseStartX = e.clientX;
+        clearInterval(galleryTimer);
+      });
+
+      galleryTrack.addEventListener("mousemove", (e) => {
+        if (isMouseDown) {
+          // Prevent text selection while dragging
+          e.preventDefault();
+        }
+      });
+
+      galleryTrack.addEventListener("mouseup", (e) => {
+        if (isMouseDown) {
+          mouseEndX = e.clientX;
+          const deltaX = mouseEndX - mouseStartX;
+          const absDeltaX = Math.abs(deltaX);
+
+          if (absDeltaX > minSwipeDistance) {
+            if (deltaX < 0) {
+              nextGallerySlide();
+            } else if (deltaX > 0) {
+              prevGallerySlide();
+            }
+            resetGalleryTimer();
+          } else {
+            resetGalleryTimer();
+          }
+          
+          isMouseDown = false;
+        }
+      });
+
+      galleryTrack.addEventListener("mouseleave", () => {
+        if (isMouseDown) {
+          isMouseDown = false;
+          resetGalleryTimer();
+        }
       });
     }
 
@@ -3001,6 +3436,60 @@
       });
     }
 
+    // Touch swipe functionality for mobile devices
+    const testimonialTrack = document.querySelector(".testimonials-track");
+    if (testimonialTrack) {
+      let touchStartX = 0;
+      let touchStartY = 0;
+      let touchEndX = 0;
+      const minSwipeDistance = 50; // Minimum distance in pixels to trigger a swipe
+
+      testimonialTrack.addEventListener("touchstart", (e) => {
+        // Pause auto-advance when user starts interacting
+        clearInterval(testimonialTimer);
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+      }, { passive: true });
+
+      testimonialTrack.addEventListener("touchend", (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const touchEndY = e.changedTouches[0].screenY;
+        const swipeDistanceX = touchStartX - touchEndX;
+        const swipeDistanceY = Math.abs(touchStartY - touchEndY);
+
+        // Only process swipe if horizontal movement is greater than vertical (horizontal swipe)
+        // and meets minimum threshold
+        if (Math.abs(swipeDistanceX) > minSwipeDistance && Math.abs(swipeDistanceX) > swipeDistanceY) {
+          if (swipeDistanceX > 0) {
+            // Swipe left - go to next testimonial
+            nextTestimonial();
+          } else {
+            // Swipe right - go to previous testimonial
+            prevTestimonial();
+          }
+          // Reset the timer after manual swipe
+          testimonialTimer = setInterval(nextTestimonial, testimonialInterval);
+        } else {
+          // If swipe was too short or primarily vertical, resume auto-advance
+          testimonialTimer = setInterval(nextTestimonial, testimonialInterval);
+        }
+      }, { passive: true });
+
+      // Prevent default scroll behavior when swiping horizontally on testimonials
+      testimonialTrack.addEventListener("touchmove", (e) => {
+        if (e.touches.length === 1) {
+          const touch = e.touches[0];
+          const diffX = Math.abs(touch.screenX - touchStartX);
+          const diffY = Math.abs(touch.screenY - touchStartY);
+
+          // If horizontal movement is greater than vertical, prevent default to allow swipe
+          if (diffX > diffY && diffX > 10) {
+            e.preventDefault();
+          }
+        }
+      }, { passive: false });
+    }
+
     // Consultation Form Handler
     const consultationForm = document.getElementById("consultationForm");
     if (consultationForm) {
@@ -3036,7 +3525,7 @@
             // Show success notification
             showNotification(
               "Request Submitted!",
-              `Thank you! Please contact us at +91 98195 55486 if it's an emergency.`,
+              `Thank you! Please contact us at 9819 555 486 if it's an emergency.`,
               true
             );
             
@@ -3049,7 +3538,7 @@
           // Show error notification
           showNotification(
             "Submission Failed",
-            "Please try again or call us directly at +91 98195 55486",
+            "Please try again or call us directly at 9819 555 486",
             false
           );
           console.error("Form submission error:", error);
