@@ -663,6 +663,148 @@
     }
 
     /* ========================================
+       IN THE NEWS SECTION
+       ======================================== */
+    .featured {
+      background: linear-gradient(180deg, var(--white) 0%, #f0f9ff 100%);
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Video styled like a TV broadcast frame */
+    .featured-screen {
+      background: var(--gray-900);
+      border-radius: var(--radius-2xl);
+      padding: 0.75rem;
+      box-shadow: var(--shadow-xl);
+    }
+
+    .featured-video {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      background: #000;
+    }
+
+    .featured-video iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    .featured-lower-third {
+      display: flex;
+      align-items: stretch;
+      margin-top: 0.75rem;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .featured-lower-third .channel {
+      background: #dc2626;
+      color: var(--white);
+      padding: 0.5rem 0.9rem;
+      white-space: nowrap;
+    }
+
+    .featured-lower-third .headline {
+      flex: 1;
+      background: var(--white);
+      color: var(--gray-900);
+      padding: 0.5rem 0.9rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .on-air {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-full);
+      background: rgba(220, 38, 38, 0.1);
+      color: #dc2626;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+
+    .on-air::before {
+      content: "";
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      background: #dc2626;
+      animation: onAirPulse 1.6s ease-in-out infinite;
+    }
+
+    @keyframes onAirPulse {
+      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.5); }
+      50% { opacity: 0.6; box-shadow: 0 0 0 6px rgba(220, 38, 38, 0); }
+    }
+
+    .featured-info h2 {
+      margin-bottom: 1rem;
+    }
+
+    .featured-info p {
+      font-size: 1.125rem;
+      color: var(--gray-600);
+      margin-bottom: 1.5rem;
+    }
+
+    .featured-topics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      list-style: none;
+    }
+
+    .featured-topics li {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: var(--radius-full);
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      color: var(--primary-blue);
+      font-weight: 600;
+      font-size: 0.9375rem;
+    }
+
+    @media (max-width: 900px) {
+      .featured-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .featured-info {
+        text-align: center;
+      }
+
+      .featured-topics {
+        justify-content: center;
+      }
+    }
+
+    /* ========================================
        KNOW YOUR DOCTOR SECTION
        ======================================== */
     .know-doctor {
@@ -2110,6 +2252,47 @@
     </div>
   </section>
 
+  <!-- IN THE NEWS SECTION -->
+  <section class="featured section" id="featured">
+    <div class="container">
+      <div class="featured-grid">
+        <div class="featured-screen reveal">
+          <div class="featured-video">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/jz-q4KaehBQ"
+              title="Dr. Mushir M. Siddiqui on Zee 24 News - Health Talk Show"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
+          <div class="featured-lower-third" aria-hidden="true">
+            <span class="channel">Zee 24 News</span>
+            <span class="headline">Dr. Mushir M. Siddiqui &middot; Orthopaedic Surgeon, Mumbai</span>
+          </div>
+        </div>
+
+        <div class="featured-info reveal">
+          <span class="on-air">As Seen on TV</span>
+          <h2>Talking <span class="gradient-text">Bone Health</span> on Zee 24 News</h2>
+          <p>
+            Dr. Mushir joined Zee 24 News for a health talk show, sharing expert advice on keeping
+            your bones, joints and nerves healthy, and when it's time to see a specialist.
+          </p>
+          <ul class="featured-topics">
+            <li><i class="fas fa-bone"></i> Bone Health</li>
+            <li><i class="fas fa-person-walking"></i> Joint Care</li>
+            <li><i class="fas fa-brain"></i> Nerve Health</li>
+          </ul>
+          <a href="https://youtu.be/jz-q4KaehBQ" target="_blank" rel="noopener" class="btn btn-primary">
+            <i class="fab fa-youtube"></i>
+            Watch on YouTube
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- KNOW YOUR DOCTOR SECTION -->
   <section class="know-doctor section" id="about">
     <div class="container">
@@ -2830,8 +3013,9 @@
         <h4>Contact Information</h4>
         <ul class="footer-links">
           <li><a href="tel:+919819555486"><i class="fas fa-phone"></i> 9819 555 486</a></li>
-          <li><a href="tel:+919819555486"><i class="fas fa-envelope"></i> ms@mushirsiddiqui.in</a></li>
+          <li><a href="mailto:ms@mushirsiddiqui.in"><i class="fas fa-envelope"></i> ms@mushirsiddiqui.in</a></li>
           <li><a href="https://mushirsiddiqui.in" target="_blank" rel="noopener noreferrer"><i class="fas fa-globe"></i> mushirsiddiqui.in</a></li>
+          <li><a href="https://www.youtube.com/@MushiRSiddiQui12091" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i> YouTube Channel</a></li>
         </ul>
       </div>
     </div>
@@ -3513,7 +3697,7 @@
         
         try {
           // Send POST request to webhook
-          const response = await fetch("https://n8n.taaha.in/webhook/d2c43877-1009-434e-877f-2ef4e8b5fb07", {
+          const response = await fetch("https://mushir-contact-worker.devtaaha.workers.dev", {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
