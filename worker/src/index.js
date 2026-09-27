@@ -1,0 +1,68 @@
+import { WorkerMailer } from "worker-mailer";
+
+export default {
+  async fetch(request, env) {
+    const origin = request.headers.get("Origin") || "";
+    const allowed = env.ALLOWED_ORIGINS.split(",");
+    const cors = {
+      "Access-Control-Allow-Origin": allowed.includes(origin) ? origin : allowed[0],
+      "Access-Control-Allow-Methods": "POST, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type",
+      "Vary": "Origin",
+    };
+    const reply = (status, body) =>
+      new Response(JSON.stringify(body), {
+        status,
+        headers: { ...cors, "Content-Type": "application/json" },
+      });
+
+    if (request.method === "OPTIONS") return new Response(null, { headers: cors });
+    if (request.method !== "POST") return reply(405, { error: "Method not allowed" });
+    if (!allowed.includes(origin)) return reply(403, { error: "Forbidden" });
+
+    let data;
+    try {
+      data = await request.json();
+    } catch {
+      return reply(400, { error: "Invalid JSON" });
+    }
+
+    const issue = String(data.issue || "").trim().slice(0, 2000);
+    const phone = String(data.phone || "").trim().slice(0, 30);
+    const email = String(data.email || "").trim().slice(0, 200);
+    if (!issue || !phone || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      return reply(400, { error: "Invalid fields" });
+    }
+
+    const esc = (s) =>
+      s.replace(/[&<>"']/g, (c) =>
+        ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]
+      );
+
+    try {
+      await WorkerMailer.send(
+        {
+          host: "smtp.gmail.com",
+          port: 465,
+          secure: true,
+          authType: "plain",
+          credentials: { username: env.GMAIL_USER, password: env.GMAIL_APP_PASSWORD },
+        },
+        {
+          from: { name: "Website Consultation Form", email: env.GMAIL_USER },
+          to: env.MAIL_TO.split(","),
+          reply: email,
+          subject: `New consultation request - ${phone}`,
+          text: `Medical concern:\n${issue}\n\nPhone: ${phone}\nEmail: ${email}`,
+          html: `<p><strong>Medical concern:</strong><br>${esc(issue).replace(/\n/g, "<br>")}</p>
+                 <p><strong>Phone:</strong> ${esc(phone)}</p>
+                 <p><strong>Email:</strong> ${esc(email)}</p>`,
+        }
+      );
+      return reply(200, { ok: true });
+    } catch (err) {
+      console.error("Email send failed:", err);
+      return reply(502, { error: "Could not send email" });
+    }
+  },
+};
